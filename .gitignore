@@ -25,6 +25,7 @@ $RECYCLE.BIN/
 # =========================
 
 .DS_Store
+.DS_Store?
 .AppleDouble
 .LSOverride
 
@@ -41,3 +42,30 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# =============== #
+# Unity generated #
+# =============== #
+Temp/
+Library/
+*.meta
+
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+ExportedObj/
+obj/
+*.svd
+*.userprefs
+/*.csproj
+*.pidb
+*.suo
+/*.sln
+*.user
+*.unityproj
+*.booproj
+
+# =============== #
+#  Export files   #
+# =============== #
+output/
