@@ -42,6 +42,7 @@ public class interactObjControl : MonoBehaviour {
 		if (chkCont == "socket" || chkCont == "target") {
 			List<string> ovList = this.GetComponent<detectOverlap>().overlapList;
 			string ovObjNm = ovList.Find(listOvObj => listOvObj.Contains( chkCont ) );
+			//Debug.Log( ovObjNm)
 			if (ovObjNm != null) {
 				var ovObjAA = GameObject.Find(ovObjNm).GetComponent<answerAssigned>();
 			
@@ -49,7 +50,7 @@ public class interactObjControl : MonoBehaviour {
 				 * no object at the destination already, move it there */
 				if (ovList != null && ovObjNm != null && !ovObjAA.ansLock) {
 					this.transform.position = GameObject.Find(ovObjNm).transform.position;
-//					/* Make sure obj at original z-val */
+					/* Make sure obj at original z-val */
 					ovObjAA.ansLock = true;
 					this.lockAns = true;
 					this.atDest = true;
@@ -69,7 +70,6 @@ public class interactObjControl : MonoBehaviour {
 	}
 
 	void OnMouseEnter() {
-
 		if (!GameObject.Find("button_done").GetComponent<doneButton>().endSim && !this.lockAns ) {
 			this.GetComponent<Renderer>().material.color = mouseOverColor;
 		}
@@ -82,7 +82,6 @@ public class interactObjControl : MonoBehaviour {
 	}
 
 	void OnMouseDown() {
-
 		if (!GameObject.Find("button_done").GetComponent<doneButton>().endSim) {
 			distance = Vector3.Distance(transform.position, Camera.main.transform.position);
 			dragging = true;
@@ -104,8 +103,6 @@ public class interactObjControl : MonoBehaviour {
 			/* Reset z-val to original */
 			this.transform.position = new Vector3 (this.transform.position.x, this.transform.position.y, 0 );
 		}
-//		string dl = "H:"+atHome.ToString() +" D:"+ atDest.ToString();
-//		Debug.Log (dl);
 	}
 
 	void Start () {
@@ -131,7 +128,7 @@ public class interactObjControl : MonoBehaviour {
 				this.transform.position = new Vector3 (x, y, -1);
 			}
 			if ( !atHome && !atDest ) {
-				float spd = 100 * Time.deltaTime;
+				float spd = 750 * Time.deltaTime;
 				this.transform.position = Vector3.MoveTowards(this.transform.position, this.initLoc, spd);
 			}
 			if ( this.transform.position != initLoc ) {

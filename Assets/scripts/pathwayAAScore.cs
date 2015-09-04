@@ -52,7 +52,7 @@ public class pathwayAAScore : MonoBehaviour {
 		},
 		{"socket.003" , new[] {
 				"box.003", 
-				"Fluid Interstitium to Plasma", 
+				"Fluid; Interstitium to Plasma", 
 				"target.003", 
 				"increase"} 
 		},

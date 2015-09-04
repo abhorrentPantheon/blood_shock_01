@@ -20,11 +20,11 @@ public class capiExpose : MonoBehaviour {
 		set { _outFeed = value; Capi.set ( "Sim.Feedback", value ); }
 	}
 
-	private string _outSave = "";
-	public string oSave {
-		get { return _outSave; }
-		set { _outSave = value; Capi.set ( "Sim.SaveData", value ); }
-	}
+//	private string _outSave = "";
+//	public string oSave {
+//		get { return _outSave; }
+//		set { _outSave = value; Capi.set ( "Sim.SaveData", value ); }
+//	}
 
 	// Use this for initialization
 	void Start () {
@@ -32,7 +32,7 @@ public class capiExpose : MonoBehaviour {
 		/* Change output values */
 		oScore = this.GetComponent<pathwayAAScore>().outScore;
 		oFeed = this.GetComponent<pathwayAAScore>().outFeed;
-		oSave = this.GetComponent<pathwayAAScore>().outSave;
+//		oSave = this.GetComponent<pathwayAAScore>().outSave;
 
 		/*
 		 * Allow CAPI variables to be seen 
@@ -40,7 +40,7 @@ public class capiExpose : MonoBehaviour {
 		 */ 
 		Capi.expose<float> ("Sim.Score", () => { return oScore; }, (value) => { return oScore = value; } );
 		Capi.expose<string> ("Sim.Feedback", () => { return oFeed; }, (value) => { return oFeed = value; } );
-		Capi.expose<string> ("Sim.SaveData", () => {return oSave; }, (value) => {return oSave = value; } );
+//		Capi.expose<string> ("Sim.SaveData", () => {return oSave; }, (value) => {return oSave = value; } );
 	}
 	
 	// Update is called once per frame
